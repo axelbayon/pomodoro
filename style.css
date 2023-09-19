@@ -2,24 +2,57 @@ body {
     font-family: Arial, sans-serif;
     text-align: center;
     margin: 0 auto;
-    max-width: 600px;
-    padding: 20px;
+    max-width: 100%;
+    max-height: 100%;
+    padding: 2%;
+}
+
+main {
+    border: 2px solid #333;
+    border-radius: 10px; 
+    padding: 2%; 
+    background-color: #ffffff;
+}
+
+footer {
+    background-color: #333;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid #000000;
+    color: #ffffff;
+}
+
+hr {
+    border: 1px solid #333;
 }
 
 h1 {
-    color: #333;
+    color: #ffffff;
+    font-family: 'Croissant One', cursive;
+    border: 2px solid #333;
+    border-radius: 10px;
+    background-color: #000000;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 h2 {
     font-size: 1.5em;
     color: #333;
-    margin-top: 20px;
+    font-family: 'Teko', sans-serif;
+    font-size : 200%;
+}
+
+#actuel {
+    margin-bottom: -1.5%;
 }
 
 h3 {
     font-size: 1.2em;
     color: #333;
-    margin-top: 10px;
+    margin-top: 2%;
 }
 
 #periode {
@@ -27,6 +60,19 @@ h3 {
     justify-content: space-between;
     align-items: center;
     margin-top: 10px;
+}
+
+#minuteur {
+    border: 2px solid #333; /* Ajout de la bordure */
+    border-radius: 10%;
+    margin-bottom: 2%;
+    background-color: #000000;
+    color: #ffffff;
+    width: 35%;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 2em;
+    font-weight: bold;
 }
 
 .box {
@@ -37,22 +83,35 @@ h3 {
     border: 2px solid #333;
     border-radius: 5px;
     transition: background-color 0.3s ease;
-    margin : 1%;
+    margin: 1%;
+    font-family: 'Croissant One', cursive;
 }
 
 #travailBox.box.active {
-    background-color: #FF5733; /* Couleur rouge pour la période de travail */
+    /* Permet de modifier l'affichage de la box "travail" lorsqu'elle est active */
+    background-color: #ff0000;
+    font-weight: bold;
+    border: 4px solid #000000;
+    font-size: 2em;
 }
 
 #pauseBox.box.active {
-    background-color: #3D8E33; /* Couleur verte pour la période de pause */
+    /* Permet de modifier l'affichage de la box "pause" lorsqu'elle est active */
+    background-color: #237018;
+    font-weight: bold;
+    border: 4px solid #000000;
+    font-size: 2em;
 }
 
 .zone_parametres {
     border: 2px solid #333;
-    padding: 10px;
+    padding: 2%;
     border-radius: 5px;
-    margin-top: 20px;
+    margin-top: 2%;
+    background-color: #ffffff;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 label {
@@ -71,7 +130,7 @@ button {
     font-size: 1em;
     padding: 10px 20px;
     background-color: #333;
-    color: #FFF;
+    color: #ffffff;
     border: none;
     cursor: pointer;
     margin-top: 10px;
@@ -79,28 +138,100 @@ button {
 
 button:hover {
     background-color: #555;
+    color: #ffffff;
+    font-weight: bold;
 }
 
 #boutonSauvegarder {
-    background-color: #333;
-    color: #FFF;
+    background-color: #433ffe;
+    color: #000000;
     border: none;
     cursor: pointer;
     margin-top: 10px;
 }
 
+#boutonSauvegarder:hover {
+    background-color: #0c0994;
+    color: #ffffff;
+    font-weight: bold;
+}
+
 button#boutonSauvegarder:disabled {
-    background-color: #ccc; /* Couleur grise pour le bouton désactivé */
-    cursor: not-allowed; /* Curseur en forme de non autorisé */
+    background-color: #ccc;
+    cursor: not-allowed;
 }
 
 input:disabled, button#boutonSauvegarder:disabled {
     background-color: #ccc;
     cursor: not-allowed;
-    color: #333; /* Changement de la couleur du texte */
+    color: #333;
 }
 
-#minuteur {
-    font-size: 3em;
-    font-weight: bold;
+/* Animation pour le clignotement du minuteur (quand il reste 30 secondes) */
+@keyframes blink {
+    0%, 5% {
+        opacity: 1;
+    }
+    5%, 10% {
+        opacity: 0.95;
+    }
+    10%, 15% {
+        opacity: 0.9;
+    }
+    15%, 20% {
+        opacity: 0.85;
+    }
+    20%, 25% {
+        opacity: 0.8;
+    }
+    25%, 30% {
+        opacity: 0.75;
+    }
+    30%, 35% {
+        opacity: 0.7;
+    }
+    35%, 40% {
+        opacity: 0.65;
+    }
+    40%, 45% {
+        opacity: 0.6;
+    }
+    45%, 50% {
+        opacity: 0.55;
+    }
+    50%, 55% {
+        opacity: 0.5;
+    }
+    55%, 60% {
+        opacity: 0.45;
+    }
+    60%, 65% {
+        opacity: 0.4;
+    }
+    65%, 70% {
+        opacity: 0.35;
+    }
+    70%, 75% {
+        opacity: 0.3;
+    }
+    75%, 80% {
+        opacity: 0.25;
+    }
+    80%, 85% {
+        opacity: 0.2;
+    }
+    85%, 90% {
+        opacity: 0.15;
+    }
+    90%, 95% {
+        opacity: 0.1;
+    }
+    95%, 100% {
+        opacity: 0.05;
+    }
+}
+
+/* Style de l'animation pour le clignotement du minuteur (quand il reste 30 secondes) */
+.clignotement {
+    animation: blink 1s infinite;
 }
